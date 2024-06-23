@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
@@ -26,5 +27,11 @@ public class TeamController {
     public Team getTeamById(@Argument int teamId){
         return teamDAO.getTeamByTeamId(teamId);
     }
+
+    @MutationMapping(name = "createTeam")
+    public int createTeam(@Argument String name, @Argument String coach, @Argument String city){
+        return teamDAO.createTeam(name, coach,city);
+    }
+
 
 }

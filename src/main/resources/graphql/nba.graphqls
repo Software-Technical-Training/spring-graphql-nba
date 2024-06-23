@@ -24,6 +24,11 @@ type Query {
     player(playerId : ID) : Player
 }
 
+type Mutation {
+    createPlayer(name: String, position: Position) : Int
+    createTeam(name: String, coach: String, city: String): Int
+}
+
 enum Position {
     FORWARD
     CENTER

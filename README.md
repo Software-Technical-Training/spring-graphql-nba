@@ -24,6 +24,13 @@ teams {<br>
     name<br>
     city<br>
   }<br>
+team(teamId:"7"){<br>
+    id, name <br>
+  } <br>
+}<br>
+
+mutation {<br>
+  createTeam(name: "Seattle Seahawks", coach: "Gary", city: "Seattle") <br>
 }<br>
 
 # Constraints

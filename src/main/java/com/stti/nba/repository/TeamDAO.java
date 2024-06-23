@@ -9,6 +9,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.stti.nba.entity.Team;
+import com.stti.nba.errors.TeamAlreadyExistsException;
+import com.stti.nba.errors.TeamNotFoundException;
 
 @Repository
 public class TeamDAO {
@@ -25,8 +27,22 @@ public class TeamDAO {
     }
 
     public Team getTeamByTeamId(int teamId){
-        return jdbcTemplate.queryForObject("SELECT * from TEAM where id=?", new TeamRowMapper(),teamId);
+        try {
+            return jdbcTemplate.queryForObject("SELECT * from TEAM where id=?", new TeamRowMapper(),teamId);            
+        } catch (Exception e) {
+            throw new TeamNotFoundException("Team not found for id: " +  teamId);
+        }
     }
+
+    public int createTeam(String name, String coach,String city){
+        try {
+            return jdbcTemplate.update("INSERT into TEAM (name,coach,city) VALUES (?,?,?)", name, coach, city);            
+        } catch (Exception e) {
+            throw new TeamAlreadyExistsException("Team already exists with this name : " + name);
+        }
+    }
+
+
 
 
 
