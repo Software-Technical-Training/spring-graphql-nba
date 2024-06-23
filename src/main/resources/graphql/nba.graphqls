@@ -18,8 +18,9 @@ type Team {
 }
 
 type Query {
-    teams : [Team]
-    players(teamId : ID) : [Player] 
+    teams : [Team!]!
+    team(teamId: ID) : Team
+    players(teamId : ID) : [Player]! 
     player(playerId : ID) : Player
 }
 

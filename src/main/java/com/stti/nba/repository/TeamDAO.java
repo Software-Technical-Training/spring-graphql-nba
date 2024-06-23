@@ -24,6 +24,10 @@ public class TeamDAO {
         return jdbcTemplate.query("SELECT * from TEAM", new TeamRowMapper());
     }
 
+    public Team getTeamByTeamId(int teamId){
+        return jdbcTemplate.queryForObject("SELECT * from TEAM where id=?", new TeamRowMapper(),teamId);
+    }
+
 
 
 }
