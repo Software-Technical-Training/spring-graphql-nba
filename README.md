@@ -29,6 +29,26 @@ team(teamId:"7"){<br>
   } <br>
 }<br>
 
+
+query {<br>
+  team(teamId:"1"){<br>
+    name<br>
+    coach<br>
+    city<br>
+    arena<br>
+    owner<br>
+    founded<br>
+    players{<br>
+      id<br>
+      name<br>
+      age<br>
+      height<br>
+      position<br>
+    }<br>
+  }<br>
+}<br>
+
+
 mutation {<br>
   createTeam(name: "Seattle Seahawks", coach: "Gary", city: "Seattle") <br>
 }<br>

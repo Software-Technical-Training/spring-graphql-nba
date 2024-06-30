@@ -20,8 +20,12 @@ public class PlayerDAO {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    public List<Player> getAllTeams(){
+    public List<Player> getAllPlayers(){
         return jdbcTemplate.query("SELECT * from PLAYER", new PlayerRowMapper());
+    }
+
+    public List<Player> getPlayersInTeam(int teamId){
+        return jdbcTemplate.query("SELECT * from PLAYER WHERE team_id= ?",new PlayerRowMapper(),teamId);
     }
 
 

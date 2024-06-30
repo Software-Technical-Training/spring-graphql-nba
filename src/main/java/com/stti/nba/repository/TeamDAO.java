@@ -18,6 +18,9 @@ public class TeamDAO {
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
+    PlayerDAO playerDAO;
+
+    @Autowired
     public void setDataSource(DataSource dataSource){
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -28,7 +31,9 @@ public class TeamDAO {
 
     public Team getTeamByTeamId(int teamId){
         try {
-            return jdbcTemplate.queryForObject("SELECT * from TEAM where id=?", new TeamRowMapper(),teamId);            
+            Team team = (Team)jdbcTemplate.queryForObject("SELECT * from TEAM where id=?", new TeamRowMapper(),teamId);
+            team.setPlayers(playerDAO.getPlayersInTeam(teamId));
+            return team;            
         } catch (Exception e) {
             throw new TeamNotFoundException("Team not found for id: " +  teamId);
         }

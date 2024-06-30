@@ -20,7 +20,7 @@ type Team {
 type Query {
     teams : [Team!]!
     team(teamId: ID) : Team
-    players(teamId : ID) : [Player]! 
+    playersInTeam(teamId : ID) : [Player]! 
     player(playerId : ID) : Player
 }
 

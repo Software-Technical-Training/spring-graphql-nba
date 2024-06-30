@@ -1,5 +1,8 @@
 package com.stti.nba.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Team {
     private int id;
     private String name;
@@ -8,6 +11,7 @@ public class Team {
     private String arena;
     private String founded;
     private String owner;
+    List<Player> players = new ArrayList<>();
     
     public int getId() {
         return id;
@@ -52,6 +56,13 @@ public class Team {
         this.owner = owner;
     }
 
+    public List<Player> getPlayers(){
+        return players;
+    }
+
+    public void setPlayers(List<Player> playerList){
+        this.players = playerList;
+    }
     
 
 }
