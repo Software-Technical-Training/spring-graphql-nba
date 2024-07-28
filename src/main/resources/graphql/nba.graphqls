@@ -19,9 +19,9 @@ type Team {
 
 type Query {
     teams : [Team!]!
-    team(teamId: ID) : Team
-    playersInTeam(teamId : ID) : [Player]! 
-    player(playerId : ID) : Player
+    team(teamId: ID!) : Team
+    playersInTeam(teamId : ID!) : [Player]! 
+    player(playerId : ID!) : Player
 }
 
 type Mutation {
