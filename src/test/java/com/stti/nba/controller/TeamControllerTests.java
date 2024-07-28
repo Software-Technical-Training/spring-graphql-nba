@@ -2,13 +2,9 @@ package com.stti.nba.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import static graphql.ErrorType.NullValueInNonNullableField;
 import static org.springframework.graphql.execution.ErrorType.BAD_REQUEST;
-import static org.springframework.graphql.execution.ErrorType.INTERNAL_ERROR;
 import static org.springframework.graphql.execution.ErrorType.NOT_FOUND;
 
 import java.util.List;
@@ -17,10 +13,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.graphql.tester.AutoConfigureGraphQlTester;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.graphql.GraphQlResponse;
 import org.springframework.graphql.test.tester.GraphQlTester;
 import com.stti.nba.entity.Team;
-import com.stti.nba.errors.TeamNotFoundException;
+
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @AutoConfigureGraphQlTester
